@@ -36,6 +36,15 @@ class _ChatScreenState extends State<ChatScreen> {
   List<String> _conversationDates = [];
   bool _isConversationLoaded = false;
 
+  @override
+  void initState() {
+    super.initState();
+    // Appel de _getConversationHistory une seule fois après un délai de 20 secondes
+    Future.delayed(Duration(seconds: 20), () {
+      _getConversationHistory(widget.databaseId);
+    });
+  }
+
   void _sendMessage(String databaseId) async {
     String userMessage = _controller.text;
     if (userMessage.isNotEmpty) {
@@ -289,13 +298,6 @@ class _ChatScreenState extends State<ChatScreen> {
                   border: OutlineInputBorder(),
                 ),
               ),
-            ),
-            SizedBox(width: 8.0),
-            ElevatedButton(
-              onPressed: () {
-                _getConversationHistory(widget.databaseId);
-              },
-              child: Text('Load'),
             ),
             SizedBox(width: 8.0),
             IconButton(

@@ -16,7 +16,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => ModelsProvider()),
-        ChangeNotifierProvider(create: (_) => ChatProvider()), // Ajoutez ChatProvider
+        ChangeNotifierProvider(create: (_) => ChatProvider()),
         ChangeNotifierProvider(create: (_) => FileUploadViewModel()),
       ],
       child: const MyApp(),

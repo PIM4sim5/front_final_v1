@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome ${user.name} to ChatDb"), // Modifier le texte de la barre d'applications
+        title: Text("Welcome ${user.name} to ChatDb"),
         actions: [
           GestureDetector(
             onTap: () {
